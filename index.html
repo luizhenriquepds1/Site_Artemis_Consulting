@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">ARTEMIS Consulting | Importação Premium da China</title>
+  <meta name="description" content="Consultoria de importação premium Brasil-China. Auditoria presencial, negociação direta e acompanhamento completo da fábrica até a sua porta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============== NAVBAR ============== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#top" class="logo" aria-label="Artemis Consulting">
+        <span class="logo-text">ARTEMIS</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+        <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
+        <li><a href="#como-funciona" data-i18n="nav.howItWorks">Como Funciona</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Selector -->
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-trigger" id="langTrigger" aria-haspopup="listbox" aria-expanded="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-current">PT</span>
+            <svg class="lang-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <ul class="lang-dropdown" id="langDropdown" role="listbox">
+            <li><button data-lang="PT" role="option"><span>Português</span><span class="flag">BR</span></button></li>
+            <li><button data-lang="EN" role="option"><span>English</span><span class="flag">US</span></button></li>
+            <li><button data-lang="CN" role="option"><span>中文</span><span class="flag">CN</span></button></li>
+            <li><button data-lang="ES" role="option"><span>Español</span><span class="flag">ES</span></button></li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/558188475764" target="_blank" class="btn btn-ghost-gold" data-i18n="nav.cta">Falar Conosco</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============== HERO ============== -->
+  <header class="hero" id="top">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600" alt="Porto de contêineres em vista aérea" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content reveal">
+      <span class="eyebrow" data-i18n="hero.eyebrow">▸ Consultoria de Importação Premium</span>
+      <h1 class="hero-title" data-i18n-html="hero.title">
+        Importe da China com <span class="text-gold">Segurança</span> e Resultados Reais
+      </h1>
+      <p class="hero-sub" data-i18n="hero.sub">
+        Conectamos empreendedores brasileiros aos melhores fornecedores chineses — com auditoria presencial, negociação direta e acompanhamento completo.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/558188475764" target="_blank" class="btn btn-primary" data-i18n="hero.btnPrimary">Falar com Especialista</a>
+        <a href="#servicos" class="btn btn-outline-light" data-i18n="hero.btnSecondary">Conhecer os Serviços</a>
+      </div>
+    </div>
+    <a href="#stats" class="scroll-indicator" aria-label="Rolar para baixo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </a>
+  </header>
+
+  <!-- ============== STATS BAR ============== -->
+  <section class="stats-bar" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <span class="stat-number counter" data-target="200" data-prefix="+">+0</span>
+          <span class="stat-label" data-i18n="stats.imports">Importações Realizadas</span>
+        </div>
+        <div class="stat-item stat-divider reveal">
+          <span class="stat-number counter" data-target="50" data-prefix="+">+0</span>
+          <span class="stat-label" data-i18n="stats.suppliers">Fornecedores Auditados</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number counter" data-target="8" data-prefix="+" data-suffix=" anos" data-suffix-key="stats.yearsSuffix">+0</span>
+          <span class="stat-label" data-i18n="stats.experience">Anos de Experiência</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ABOUT ============== -->
+  <section class="section about" id="sobre">
+    <div class="container split">
+      <div class="split-image reveal">
+        <div class="image-frame-accent"></div>
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800" alt="Aperto de mãos em reunião de negócios" loading="lazy" />
+      </div>
+      <div class="split-text reveal">
+        <span class="eyebrow eyebrow-dark" data-i18n="about.eyebrow">Sobre a Artemis</span>
+        <h2 class="section-title" data-i18n="about.title">Seu parceiro estratégico no mercado global</h2>
+        <p class="lead" data-i18n="about.lead">
+          A Artemis Consulting surge como a solução definitiva para empreendedores brasileiros que desejam explorar o potencial das importações diretas da China. Nosso objetivo é tornar cada operação simples, segura e lucrativa, conectando você aos fornecedores mais confiáveis e oferecendo acompanhamento completo desde a escolha do produto até a entrega final.
+        </p>
+        <p class="muted" data-i18n="about.muted">
+          Combinamos experiência, rigor e atenção aos detalhes para que cada cliente tenha confiança e resultados tangíveis.
+        </p>
+        <ul class="trust-badges">
+          <li><span class="check">✓</span> <span data-i18n="about.badge1">Auditoria Presencial</span></li>
+          <li><span class="check">✓</span> <span data-i18n="about.badge2">Sem Intermediários</span></li>
+          <li><span class="check">✓</span> <span data-i18n="about.badge3">Suporte 24/7</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== WHY CHINA ============== -->
+  <section class="section why-china">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark" data-i18n="whyChina.eyebrow">Por que a China?</span>
+        <h2 class="section-title" data-i18n="whyChina.title">A maior potência exportadora do mundo</h2>
+        <p class="section-sub" data-i18n="whyChina.sub">
+          Cidades inteiras especializadas em setores estratégicos, infraestrutura logística integrada e padrões de qualidade rigorosos. Tudo isso a um clique do empreendedor brasileiro.
+        </p>
+      </div>
+      <div class="why-grid">
+        <article class="why-card reveal">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Fábrica chinesa moderna" loading="lazy" />
+          <div class="why-overlay"></div>
+          <div class="why-content">
+            <h3 data-i18n="whyChina.card1.title">Tecnologia e Inovação</h3>
+            <p data-i18n="whyChina.card1.desc">Investimento massivo em automação industrial, inteligência artificial e controle de qualidade avançado.</p>
+          </div>
+        </article>
+        <article class="why-card reveal">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" alt="Centro logístico" loading="lazy" />
+          <div class="why-overlay"></div>
+          <div class="why-content">
+            <h3 data-i18n="whyChina.card2.title">Logística Global</h3>
+            <p data-i18n="whyChina.card2.desc">Sistema integrado de portos, ferrovias e centros de distribuição garantindo rapidez e confiabilidade.</p>
+          </div>
+        </article>
+        <article class="why-card reveal">
+          <img src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?w=800" alt="Skyline de Shanghai" loading="lazy" />
+          <div class="why-overlay"></div>
+          <div class="why-content">
+            <h3 data-i18n="whyChina.card3.title">Preços Competitivos</h3>
+            <p data-i18n="whyChina.card3.desc">Acesso a produtos premium com custos significativamente menores e margens muito mais saudáveis.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SERVICES ============== -->
+  <section class="section services" id="servicos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark" data-i18n="services.eyebrow">Nossos Serviços</span>
+        <h2 class="section-title" data-i18n="services.title">Consultoria completa, ponta a ponta</h2>
+        <p class="section-sub" data-i18n="services.sub">Atuamos como seu parceiro estratégico em todas as etapas da operação de importação.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon">1</div>
+          <h3 data-i18n="services.s1.title">Pesquisa de Fornecedores</h3>
+          <p data-i18n="services.s1.desc">Identificamos os melhores fabricantes para o seu produto, garantindo confiabilidade e capacidade de produção.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">2</div>
+          <h3 data-i18n="services.s2.title">Auditoria de Qualidade</h3>
+          <p data-i18n="services.s2.desc">Visitamos pessoalmente as fábricas para avaliar processos, certificações e padrões de produção.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">3</div>
+          <h3 data-i18n="services.s3.title">Negociação Comercial</h3>
+          <p data-i18n="services.s3.desc">Auxiliamos na negociação direta para garantir os melhores preços e condições de pagamento.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">4</div>
+          <h3 data-i18n="services.s4.title">Logística Internacional</h3>
+          <p data-i18n="services.s4.desc">Coordenamos todo o envio e transporte, acompanhando cada etapa até a entrega no Brasil.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">5</div>
+          <h3 data-i18n="services.s5.title">Suporte Contínuo</h3>
+          <p data-i18n="services.s5.desc">Permanecemos à disposição para qualquer dúvida ou necessidade pós-entrega, garantindo o sucesso da operação.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== HOW IT WORKS ============== -->
+  <section class="section how-it-works" id="como-funciona">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark" data-i18n="howItWorks.eyebrow">Como Funciona</span>
+        <h2 class="section-title" data-i18n="howItWorks.title">Do produto à sua porta em 5 etapas</h2>
+      </div>
+      <ol class="timeline">
+        <li class="timeline-step reveal">
+          <div class="step-circle">01</div>
+          <h4 data-i18n="steps.s1.title">Briefing</h4>
+          <p data-i18n="steps.s1.desc">Entendemos seu produto, volume e objetivo comercial.</p>
+        </li>
+        <li class="timeline-step reveal">
+          <div class="step-circle">02</div>
+          <h4 data-i18n="steps.s2.title">Pesquisa</h4>
+          <p data-i18n="steps.s2.desc">Mapeamos fábricas qualificadas e selecionamos as melhores.</p>
+        </li>
+        <li class="timeline-step reveal">
+          <div class="step-circle">03</div>
+          <h4 data-i18n="steps.s3.title">Auditoria</h4>
+          <p data-i18n="steps.s3.desc">Visita presencial e validação de qualidade na fonte.</p>
+        </li>
+        <li class="timeline-step reveal">
+          <div class="step-circle">04</div>
+          <h4 data-i18n="steps.s4.title">Embarque</h4>
+          <p data-i18n="steps.s4.desc">Negociação fechada, produção monitorada e envio internacional.</p>
+        </li>
+        <li class="timeline-step reveal">
+          <div class="step-circle">05</div>
+          <h4 data-i18n="steps.s5.title">Entrega</h4>
+          <p data-i18n="steps.s5.desc">Desembaraço aduaneiro e entrega porta a porta no Brasil.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============== DIFFERENTIALS ============== -->
+  <section class="section differentials">
+    <div class="differentials-bg">
+      <img src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?w=800" alt="" aria-hidden="true" loading="lazy" />
+    </div>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="diff.eyebrow">Diferenciais Artemis</span>
+        <h2 class="section-title text-light" data-i18n="diff.title">Por que a Artemis é diferente?</h2>
+      </div>
+      <div class="diff-grid">
+        <div class="diff-item reveal">
+          <div class="diff-icon">◆</div>
+          <h3 data-i18n="diff.d1.title">Transparência Total</h3>
+          <p data-i18n="diff.d1.desc">Sem custos ocultos. Cada centavo investido é rastreado e justificado em relatórios detalhados.</p>
+        </div>
+        <div class="diff-item reveal">
+          <div class="diff-icon">◆</div>
+          <h3 data-i18n="diff.d2.title">Auditoria Presencial</h3>
+          <p data-i18n="diff.d2.desc">Nossa equipe local visita cada fornecedor fisicamente, eliminando riscos de fornecedores fantasmas.</p>
+        </div>
+        <div class="diff-item reveal">
+          <div class="diff-icon">◆</div>
+          <h3 data-i18n="diff.d3.title">Expertise Internacional</h3>
+          <p data-i18n="diff.d3.desc">Mais de 8 anos navegando o comércio Brasil-China, com profundo conhecimento de regras e cultura local.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== TESTIMONIALS ============== -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark" data-i18n="testimonials.eyebrow">Depoimentos</span>
+        <h2 class="section-title" data-i18n="testimonials.title">O que nossos clientes dizem</h2>
+      </div>
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote" data-i18n="testimonials.t1.quote">"A Artemis transformou minha operação. Consegui fornecedores confiáveis na primeira tentativa e minha margem aumentou 40%."</p>
+            <div class="author">
+              <div class="avatar">CM</div>
+              <div>
+                <strong>Carlos Mendes</strong>
+                <span data-i18n="testimonials.t1.role">Empresário, São Paulo</span>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote" data-i18n="testimonials.t2.quote">"Tentei importar sozinho antes e tive prejuízo. Com a Artemis, tive segurança em cada etapa. Recomendo sem hesitar."</p>
+            <div class="author">
+              <div class="avatar">FR</div>
+              <div>
+                <strong>Fernanda Rocha</strong>
+                <span data-i18n="testimonials.t2.role">E-commerce, Belo Horizonte</span>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote" data-i18n="testimonials.t3.quote">"O nível de profissionalismo é surpreendente. Eles visitaram a fábrica, auditaram tudo e entregaram exatamente o que prometeram."</p>
+            <div class="author">
+              <div class="avatar">RA</div>
+              <div>
+                <strong>Ricardo Alves</strong>
+                <span data-i18n="testimonials.t3.role">Importador, Rio de Janeiro</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FAQ ============== -->
+  <section class="section faq" id="faq">
+    <div class="container container-narrow">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark" data-i18n="faq.eyebrow">Perguntas Frequentes</span>
+        <h2 class="section-title" data-i18n="faq.title">Tire suas dúvidas</h2>
+      </div>
+      <div class="accordion">
+        <details class="accordion-item">
+          <summary>
+            <span data-i18n="faq.q1">Quais produtos posso importar da China?</span>
+            <span class="acc-icon">▼</span>
+          </summary>
+          <div class="accordion-body">
+            <p data-i18n="faq.a1">Trabalhamos com uma ampla gama: eletrônicos, vestuário, utilidades domésticas, máquinas, cosméticos e muito mais. Fazemos uma análise de viabilidade para cada produto.</p>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary>
+            <span data-i18n="faq.q2">Qual o valor mínimo para começar uma importação?</span>
+            <span class="acc-icon">▼</span>
+          </summary>
+          <div class="accordion-body">
+            <p data-i18n="faq.a2">Nossos serviços são adaptados para diferentes volumes. Atendemos tanto iniciantes quanto empresas consolidadas, com planos personalizados.</p>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary>
+            <span data-i18n="faq.q3">Como vocês garantem a qualidade dos produtos?</span>
+            <span class="acc-icon">▼</span>
+          </summary>
+          <div class="accordion-body">
+            <p data-i18n="faq.a3">Realizamos auditorias presenciais nas fábricas, verificamos certificações, testamos amostras e acompanhamos a produção antes do embarque.</p>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary>
+            <span data-i18n="faq.q4">Quanto tempo leva o processo de importação?</span>
+            <span class="acc-icon">▼</span>
+          </summary>
+          <div class="accordion-body">
+            <p data-i18n="faq.a4">O prazo médio é de 30 a 60 dias, dependendo do produto, fábrica e modal de transporte escolhido (marítimo ou aéreo).</p>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary>
+            <span data-i18n="faq.q5">Preciso ter CNPJ para importar?</span>
+            <span class="acc-icon">▼</span>
+          </summary>
+          <div class="accordion-body">
+            <p data-i18n="faq.a5">Sim, é necessário um CNPJ habilitado para importação. Podemos orientar sobre os requisitos e processos junto à Receita Federal.</p>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary>
+            <span data-i18n="faq.q6">Vocês cuidam do desembaraço aduaneiro no Brasil?</span>
+            <span class="acc-icon">▼</span>
+          </summary>
+          <div class="accordion-body">
+            <p data-i18n="faq.a6">Sim. Coordenamos todo o processo logístico, incluindo documentação, desembaraço e entrega no endereço do cliente.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FINAL CTA ============== -->
+  <section class="cta-final" id="contato">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2 data-i18n="cta.title">Pronto para crescer com inteligência?</h2>
+        <p data-i18n="cta.text">Fale com um especialista da Artemis e descubra como a importação direta pode transformar seu negócio.</p>
+        <a href="https://wa.me/558188475764" target="_blank" class="btn btn-navy" data-i18n="cta.button">Quero Importar com a Artemis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo logo-footer">
+            <span class="logo-text">ARTEMIS</span>
+          </div>
+          <p class="tagline" data-i18n="footer.tagline">Consultoria de importação premium Brasil-China.</p>
+          <p class="muted-light" data-i18n="footer.about">Conectando empreendedores brasileiros aos melhores fornecedores chineses com excelência técnica e transparência total.</p>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.navTitle">Navegação</h5>
+          <ul>
+            <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+            <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
+            <li><a href="#como-funciona" data-i18n="nav.howItWorks">Como Funciona</a></li>
+            <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.contactTitle">Contato</h5>
+          <ul>
+            <li><a href="mailto:contato@artemisconsulting.com.br">contato@artemisconsulting.com.br</a></li>
+            <li><a href="#">WhatsApp: +55 (81) 8847-5764</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Instagram</a></li>
+
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.col4.title">Vamos conversar</h5>
+          <p class="muted-light" data-i18n="footer.col4.text">Importação segura e lucrativa para empreendedores brasileiros.</p>
+          <a href="https://wa.me/558188475764" target="_blank" class="btn btn-ghost-gold" data-i18n="footer.col4.btn">Agendar Conversa</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Artemis Consulting. Todos os direitos reservados.</span>
+        <span data-i18n="footer.madeIn">Feito com excelência no Brasil 🇧🇷</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

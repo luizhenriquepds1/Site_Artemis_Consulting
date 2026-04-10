@@ -1,0 +1,34 @@
+# ===== Claude Code =====
+.claude/
+
+# ===== Stitch reference downloads =====
+stitch_screen.html
+stitch_screen.png
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Editors / IDEs =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== Node (caso futuras dependências) =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===== Env / secrets =====
+.env
+.env.*
+!.env.example
+
+# ===== Logs =====
+*.log
