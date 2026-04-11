@@ -3,13 +3,21 @@
    ================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPageLoader();
+  initScrollProgress();
   initNavbarScroll();
+  initNavbarHide();
   initMobileMenu();
   initLanguageSelector();
   initRevealOnScroll();
+  initTimelineLine();
   initCountUp();
   initTestimonialsCarousel();
   initSmoothAnchors();
+  initBackToTop();
+  initParallax();
+  initActiveNav();
+  initCardSpotlight();
 
   // Apply persisted language (defaults to PT)
   const saved = localStorage.getItem('artemis_lang') || 'PT';
@@ -276,4 +284,168 @@ function initSmoothAnchors() {
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+}
+
+/* ----------------------------------------
+   Page loader
+---------------------------------------- */
+function initPageLoader() {
+  const loader = document.getElementById('pageLoader');
+  if (!loader) { document.body.classList.add('loaded'); return; }
+  const hide = () => {
+    if (loader.classList.contains('hidden')) return;
+    loader.classList.add('hidden');
+    document.body.classList.add('loaded');
+    setTimeout(() => loader.remove(), 800);
+  };
+  // Minimum loader time for the bar animation to be visible
+  setTimeout(hide, 750);
+  // Safety fallback
+  setTimeout(hide, 3000);
+}
+
+/* ----------------------------------------
+   Scroll progress bar
+---------------------------------------- */
+function initScrollProgress() {
+  const bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+  const update = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  };
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+}
+
+/* ----------------------------------------
+   Back to top button
+---------------------------------------- */
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  const toggle = () => btn.classList.toggle('visible', window.scrollY > 700);
+  toggle();
+  window.addEventListener('scroll', toggle, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+/* ----------------------------------------
+   Parallax — hero & differentials backgrounds
+---------------------------------------- */
+function initParallax() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const heroBg = document.querySelector('.hero-bg');
+  const diffSection = document.querySelector('.differentials');
+  const diffBg = document.querySelector('.differentials-bg');
+
+  let ticking = false;
+  const update = () => {
+    const y = window.scrollY;
+    const vh = window.innerHeight;
+    if (heroBg && y < vh * 1.2) {
+      heroBg.style.transform = `translate3d(0, ${y * 0.35}px, 0)`;
+    }
+    if (diffSection && diffBg) {
+      const rect = diffSection.getBoundingClientRect();
+      if (rect.top < vh && rect.bottom > 0) {
+        const offset = (rect.top + rect.height / 2 - vh / 2) * 0.18;
+        diffBg.style.transform = `translate3d(0, ${-offset}px, 0)`;
+      }
+    }
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+}
+
+/* ----------------------------------------
+   Active nav link based on scroll position
+---------------------------------------- */
+function initActiveNav() {
+  const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  if (links.length === 0) return;
+  const sections = links
+    .map(link => {
+      const id = link.getAttribute('href');
+      const el = id && id.length > 1 ? document.querySelector(id) : null;
+      return el ? { link, el } : null;
+    })
+    .filter(Boolean);
+  if (sections.length === 0) return;
+
+  const update = () => {
+    const y = window.scrollY + 140;
+    let current = null;
+    for (const s of sections) {
+      if (s.el.offsetTop <= y) current = s;
+    }
+    links.forEach(l => l.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  };
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
+/* ----------------------------------------
+   Navbar auto-hide on scroll down / show on scroll up
+---------------------------------------- */
+function initNavbarHide() {
+  const navbar = document.getElementById('navbar');
+  if (!navbar) return;
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (navbar.classList.contains('menu-open')) { lastY = y; return; }
+    const delta = y - lastY;
+    if (Math.abs(delta) < 6) return;
+    if (y < 120) {
+      navbar.classList.remove('nav-hidden');
+    } else if (delta > 0) {
+      navbar.classList.add('nav-hidden');
+    } else {
+      navbar.classList.remove('nav-hidden');
+    }
+    lastY = y;
+  }, { passive: true });
+}
+
+/* ----------------------------------------
+   Mouse-follow spotlight on service cards
+---------------------------------------- */
+function initCardSpotlight() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+    });
+  });
+}
+
+/* ----------------------------------------
+   Timeline: observe whole list to draw the line
+---------------------------------------- */
+function initTimelineLine() {
+  const timeline = document.querySelector('.timeline');
+  if (!timeline) return;
+  if (!('IntersectionObserver' in window)) {
+    timeline.classList.add('visible');
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+  io.observe(timeline);
 }

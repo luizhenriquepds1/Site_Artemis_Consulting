@@ -12,6 +12,14 @@
 </head>
 <body>
 
+  <!-- ============== PAGE LOADER ============== -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">ARTEMIS</div>
+  </div>
+
+  <!-- ============== SCROLL PROGRESS ============== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- ============== NAVBAR ============== -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
@@ -58,7 +66,7 @@
       <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600" alt="Porto de contêineres em vista aérea" loading="eager" />
       <div class="hero-overlay"></div>
     </div>
-    <div class="hero-content reveal">
+    <div class="hero-content">
       <span class="eyebrow" data-i18n="hero.eyebrow">▸ Consultoria de Importação Premium</span>
       <h1 class="hero-title" data-i18n-html="hero.title">
         Importe da China com <span class="text-gold">Segurança</span> e Resultados Reais
@@ -432,6 +440,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============== BACK TO TOP ============== -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <script src="i18n.js"></script>
   <script src="script.js"></script>
