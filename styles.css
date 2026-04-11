@@ -1510,8 +1510,10 @@ body:not(.loaded) { overflow: hidden; }
               opacity 0.8s var(--ease-out-expo);
 }
 .stat-item .stat-number {
-  display: inline-block;
-  transform: translateZ(40px);
+  display: block;
+}
+.stat-item .stat-label {
+  display: block;
 }
 
 /* ----- Magnetic buttons ----- */
