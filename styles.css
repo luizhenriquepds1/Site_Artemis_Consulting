@@ -1365,6 +1365,223 @@ body:not(.loaded) { overflow: hidden; }
 .testimonial-card { transition: transform 0.5s var(--ease-out-quart); }
 .carousel:hover .testimonial-card { transform: none; }
 
+/* ============================================
+   3D + FLOATING + MOTION EFFECTS
+   ============================================ */
+
+/* ----- Hero: 3D canvas layer + floating orbs ----- */
+.hero-3d {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  animation: hero3dIn 1.8s 0.4s var(--ease-out-expo) forwards;
+  mix-blend-mode: screen;
+}
+@keyframes hero3dIn { to { opacity: 0.85; } }
+
+.hero-orbs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-orbs .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  will-change: transform;
+}
+.hero-orbs .orb-1 {
+  width: 280px;
+  height: 280px;
+  top: 10%;
+  left: 8%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.6), transparent 70%);
+  animation: orbFloat1 14s ease-in-out infinite;
+}
+.hero-orbs .orb-2 {
+  width: 340px;
+  height: 340px;
+  bottom: 12%;
+  right: 6%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.45), transparent 70%);
+  animation: orbFloat2 18s ease-in-out infinite;
+}
+.hero-orbs .orb-3 {
+  width: 220px;
+  height: 220px;
+  top: 45%;
+  left: 55%;
+  background: radial-gradient(circle, rgba(232, 240, 254, 0.35), transparent 70%);
+  animation: orbFloat3 16s ease-in-out infinite;
+}
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.1); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 20px) scale(1.08); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 40px) scale(0.92); }
+}
+
+.hero-content {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* ----- Floating bob animations ----- */
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes floatBobLg {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes floatRotate {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.service-card .service-icon {
+  animation: floatBob 4s ease-in-out infinite;
+}
+.service-card:nth-child(2) .service-icon { animation-delay: 0.4s; }
+.service-card:nth-child(3) .service-icon { animation-delay: 0.8s; }
+.service-card:nth-child(4) .service-icon { animation-delay: 1.2s; }
+.service-card:nth-child(5) .service-icon { animation-delay: 1.6s; }
+
+.timeline-step .step-circle {
+  animation: floatBobLg 5s ease-in-out infinite;
+}
+.timeline-step:nth-child(2) .step-circle { animation-delay: 0.5s; }
+.timeline-step:nth-child(3) .step-circle { animation-delay: 1s; }
+.timeline-step:nth-child(4) .step-circle { animation-delay: 1.5s; }
+.timeline-step:nth-child(5) .step-circle { animation-delay: 2s; }
+
+.diff-item .diff-icon {
+  animation: floatRotate 5s ease-in-out infinite;
+}
+.diff-item:nth-child(2) .diff-icon { animation-delay: 0.6s; }
+.diff-item:nth-child(3) .diff-icon { animation-delay: 1.2s; }
+
+.testimonial-card .avatar {
+  animation: floatBob 4.5s ease-in-out infinite;
+}
+.back-to-top.visible { animation: floatBob 3.5s ease-in-out infinite; }
+.back-to-top.visible:hover { animation: none; }
+
+.scroll-indicator svg {
+  filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.4));
+}
+
+/* ----- 3D tilt cards (JS sets --rx/--ry) ----- */
+.service-card,
+.why-card,
+.stat-item,
+.diff-item,
+.testimonial-card {
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+  transition: transform 0.55s var(--ease-out-quart),
+              box-shadow 0.5s var(--ease-out-quart);
+  will-change: transform;
+}
+.service-card.tilt-active,
+.why-card.tilt-active,
+.diff-item.tilt-active,
+.testimonial-card.tilt-active {
+  transition: transform 0.15s ease-out, box-shadow 0.4s ease;
+}
+
+/* stat item lift on reveal + tilt */
+.stat-item {
+  transition: transform 0.6s var(--ease-out-expo),
+              opacity 0.8s var(--ease-out-expo);
+}
+.stat-item .stat-number {
+  display: inline-block;
+  transform: translateZ(40px);
+}
+
+/* ----- Magnetic buttons ----- */
+.btn-primary,
+.btn-navy {
+  will-change: transform;
+}
+
+/* ----- Hero content mouse parallax ----- */
+.hero-content {
+  transition: transform 0.2s ease-out;
+}
+
+/* ----- Floating particles field (stats background glow) ----- */
+.stats-bar { position: relative; overflow: hidden; }
+.stats-bar::before,
+.stats-bar::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+.stats-bar::before {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.6), transparent 70%);
+  top: -120px;
+  left: -80px;
+  animation: orbFloat1 16s ease-in-out infinite;
+}
+.stats-bar::after {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.45), transparent 70%);
+  bottom: -100px;
+  right: -60px;
+  animation: orbFloat2 20s ease-in-out infinite;
+}
+.stats-bar .container { position: relative; z-index: 1; }
+
+/* ----- CTA floating arrow on hero primary btn ----- */
+.btn-primary::after,
+.btn-navy::after {
+  content: '';
+}
+
+/* ----- Why-card content lift on hover ----- */
+.why-card .why-content {
+  transition: transform 0.5s var(--ease-out-quart);
+}
+.why-card:hover .why-content { transform: translateY(-6px); }
+
+/* ----- Logo lift on hover ----- */
+.logo-text {
+  display: inline-block;
+  transition: transform 0.5s var(--ease-out-quart), text-shadow 0.5s ease;
+}
+.logo:hover .logo-text {
+  transform: translateY(-2px);
+  text-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+}
+
+/* ----- Accordion icon float ----- */
+.accordion-item .acc-icon {
+  animation: floatBob 3s ease-in-out infinite;
+}
+.accordion-item[open] .acc-icon { animation: none; }
+
 /* ----- Respect reduced motion ----- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1377,4 +1594,16 @@ body:not(.loaded) { overflow: hidden; }
   .hero-content > * { opacity: 1 !important; transform: none !important; }
   .scroll-indicator { opacity: 0.7 !important; }
   .cta-final { animation: none !important; }
+  .hero-3d { display: none !important; }
+  .hero-orbs { display: none !important; }
+  .service-card,
+  .why-card,
+  .stat-item,
+  .diff-item,
+  .testimonial-card { transform: none !important; }
+  .service-card > *,
+  .why-card .why-content,
+  .diff-item > *,
+  .service-card .service-icon,
+  .stat-item .stat-number { transform: none !important; }
 }

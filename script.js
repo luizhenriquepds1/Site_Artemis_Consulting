@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initActiveNav();
   initCardSpotlight();
+  initHero3D();
+  initTilt3D();
+  initMagneticButtons();
+  initHeroMouseParallax();
 
   // Apply persisted language (defaults to PT)
   const saved = localStorage.getItem('artemis_lang') || 'PT';
@@ -426,6 +430,334 @@ function initCardSpotlight() {
       card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
       card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
     });
+  });
+}
+
+/* ----------------------------------------
+   Hero 3D — Three.js wireframe globe with
+   Brazil ↔ China connection arc + particles
+---------------------------------------- */
+function initHero3D() {
+  const canvas = document.getElementById('hero3d');
+  if (!canvas) return;
+  if (typeof THREE === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true,
+    powerPreference: 'high-performance',
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(
+    45,
+    hero.clientWidth / hero.clientHeight,
+    0.1,
+    100
+  );
+  camera.position.set(0, 0, 5);
+
+  const world = new THREE.Group();
+  scene.add(world);
+
+  const GOLD = 0xC9A84C;
+
+  const sphere = new THREE.Mesh(
+    new THREE.SphereGeometry(1.55, 40, 28),
+    new THREE.MeshBasicMaterial({
+      color: GOLD,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.22,
+    })
+  );
+  world.add(sphere);
+
+  const shellGeom = new THREE.SphereGeometry(1.6, 36, 24);
+  const shell = new THREE.Points(
+    shellGeom,
+    new THREE.PointsMaterial({
+      color: GOLD,
+      size: 0.028,
+      transparent: true,
+      opacity: 0.75,
+      sizeAttenuation: true,
+    })
+  );
+  world.add(shell);
+
+  const ring = new THREE.Mesh(
+    new THREE.RingGeometry(1.95, 2.0, 96),
+    new THREE.MeshBasicMaterial({
+      color: GOLD,
+      transparent: true,
+      opacity: 0.35,
+      side: THREE.DoubleSide,
+    })
+  );
+  ring.rotation.x = Math.PI / 2.4;
+  world.add(ring);
+
+  const latLngToVec3 = (lat, lng, r) => {
+    const phi = (90 - lat) * (Math.PI / 180);
+    const theta = (lng + 180) * (Math.PI / 180);
+    return new THREE.Vector3(
+      -r * Math.sin(phi) * Math.cos(theta),
+      r * Math.cos(phi),
+      r * Math.sin(phi) * Math.sin(theta)
+    );
+  };
+
+  const brPos = latLngToVec3(-23.55, -46.63, 1.55);
+  const cnPos = latLngToVec3(31.23, 121.47, 1.55);
+
+  const markerMat = new THREE.MeshBasicMaterial({ color: GOLD });
+  const markerGeo = new THREE.SphereGeometry(0.05, 16, 16);
+
+  const brMarker = new THREE.Mesh(markerGeo, markerMat);
+  brMarker.position.copy(brPos);
+  world.add(brMarker);
+
+  const cnMarker = new THREE.Mesh(markerGeo, markerMat);
+  cnMarker.position.copy(cnPos);
+  world.add(cnMarker);
+
+  const haloGeo = new THREE.SphereGeometry(0.09, 16, 16);
+  const brHalo = new THREE.Mesh(
+    haloGeo,
+    new THREE.MeshBasicMaterial({ color: GOLD, transparent: true, opacity: 0.5 })
+  );
+  brHalo.position.copy(brPos);
+  world.add(brHalo);
+  const cnHalo = new THREE.Mesh(
+    haloGeo,
+    new THREE.MeshBasicMaterial({ color: GOLD, transparent: true, opacity: 0.5 })
+  );
+  cnHalo.position.copy(cnPos);
+  world.add(cnHalo);
+
+  const midPoint = brPos.clone().add(cnPos).multiplyScalar(0.5);
+  const arcHeight = 1.2 + midPoint.length() * 0.4;
+  midPoint.normalize().multiplyScalar(arcHeight + 1.55);
+
+  const arcCurve = new THREE.QuadraticBezierCurve3(brPos, midPoint, cnPos);
+  const arcGeom = new THREE.TubeGeometry(arcCurve, 80, 0.018, 8, false);
+  const arc = new THREE.Mesh(
+    arcGeom,
+    new THREE.MeshBasicMaterial({ color: GOLD, transparent: true, opacity: 0.95 })
+  );
+  world.add(arc);
+
+  const pulse = new THREE.Mesh(
+    new THREE.SphereGeometry(0.055, 16, 16),
+    new THREE.MeshBasicMaterial({ color: 0xffffff })
+  );
+  world.add(pulse);
+
+  const particleCount = 160;
+  const pPositions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount; i++) {
+    const r = 2.8 + Math.random() * 2.2;
+    const th = Math.random() * Math.PI * 2;
+    const ph = Math.acos(2 * Math.random() - 1);
+    pPositions[i * 3]     = r * Math.sin(ph) * Math.cos(th);
+    pPositions[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th);
+    pPositions[i * 3 + 2] = r * Math.cos(ph) * 0.6;
+  }
+  const particleGeom = new THREE.BufferGeometry();
+  particleGeom.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+  const particles = new THREE.Points(
+    particleGeom,
+    new THREE.PointsMaterial({
+      color: GOLD,
+      size: 0.035,
+      transparent: true,
+      opacity: 0.6,
+      sizeAttenuation: true,
+    })
+  );
+  scene.add(particles);
+
+  const resize = () => {
+    const w = hero.clientWidth;
+    const h = hero.clientHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  };
+  resize();
+  window.addEventListener('resize', resize);
+
+  let targetX = 0, targetY = 0;
+  let curX = 0, curY = 0;
+  window.addEventListener('mousemove', (e) => {
+    targetX = (e.clientX / window.innerWidth - 0.5) * 0.6;
+    targetY = (e.clientY / window.innerHeight - 0.5) * 0.4;
+  }, { passive: true });
+
+  let inView = true;
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach(e => { inView = e.isIntersecting; }),
+      { threshold: 0 }
+    );
+    io.observe(hero);
+  }
+
+  const clock = new THREE.Clock();
+  let t = 0;
+
+  const animate = () => {
+    requestAnimationFrame(animate);
+    if (!inView) return;
+
+    const dt = clock.getDelta();
+    t += dt;
+
+    world.rotation.y += dt * 0.18;
+    world.rotation.x = Math.sin(t * 0.25) * 0.08;
+
+    curX += (targetX - curX) * 0.04;
+    curY += (targetY - curY) * 0.04;
+    camera.position.x = curX * 1.2;
+    camera.position.y = -curY * 1.0;
+    camera.lookAt(0, 0, 0);
+
+    const pulseScale = 1 + Math.sin(t * 2.2) * 0.45;
+    brHalo.scale.setScalar(pulseScale);
+    cnHalo.scale.setScalar(pulseScale);
+    brHalo.material.opacity = 0.5 - Math.sin(t * 2.2) * 0.3;
+    cnHalo.material.opacity = 0.5 - Math.sin(t * 2.2) * 0.3;
+
+    const tt = (Math.sin(t * 0.9) * 0.5 + 0.5);
+    const pt = arcCurve.getPoint(tt);
+    pulse.position.copy(pt);
+
+    particles.rotation.y += dt * 0.04;
+    particles.rotation.x += dt * 0.015;
+
+    shell.material.opacity = 0.55 + Math.sin(t * 1.4) * 0.15;
+
+    renderer.render(scene, camera);
+  };
+  animate();
+}
+
+/* ----------------------------------------
+   3D tilt — mouse-reactive perspective
+---------------------------------------- */
+function initTilt3D() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const configs = [
+    { sel: '.service-card', max: 8 },
+    { sel: '.why-card',     max: 6 },
+    { sel: '.diff-item',    max: 5 },
+    { sel: '.testimonial-card', max: 4 },
+  ];
+
+  configs.forEach(({ sel, max }) => {
+    document.querySelectorAll(sel).forEach(card => {
+      let raf = null;
+      const onMove = (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top)  / rect.height;
+        const rx = (0.5 - y) * max;
+        const ry = (x - 0.5) * max;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.setProperty('--rx', rx.toFixed(2) + 'deg');
+          card.style.setProperty('--ry', ry.toFixed(2) + 'deg');
+        });
+      };
+      const onEnter = () => card.classList.add('tilt-active');
+      const onLeave = () => {
+        card.classList.remove('tilt-active');
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      };
+      card.addEventListener('mouseenter', onEnter);
+      card.addEventListener('mousemove', onMove);
+      card.addEventListener('mouseleave', onLeave);
+    });
+  });
+}
+
+/* ----------------------------------------
+   Magnetic buttons — primary CTAs follow cursor
+---------------------------------------- */
+function initMagneticButtons() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const buttons = document.querySelectorAll('.btn-primary, .btn-navy');
+  buttons.forEach(btn => {
+    const strength = 0.35;
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * strength}px, ${y * strength}px) translateZ(0)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+}
+
+/* ----------------------------------------
+   Hero content — gentle mouse parallax
+---------------------------------------- */
+function initHeroMouseParallax() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const hero = document.querySelector('.hero');
+  const content = document.querySelector('.hero-content');
+  if (!hero || !content) return;
+
+  let targetX = 0, targetY = 0;
+  let curX = 0, curY = 0;
+  let ticking = false;
+
+  const update = () => {
+    curX += (targetX - curX) * 0.08;
+    curY += (targetY - curY) * 0.08;
+    content.style.transform = `translate3d(${curX}px, ${curY}px, 0)`;
+    if (Math.abs(targetX - curX) > 0.1 || Math.abs(targetY - curY) > 0.1) {
+      requestAnimationFrame(update);
+    } else {
+      ticking = false;
+    }
+  };
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    targetX = x * 18;
+    targetY = y * 12;
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    targetX = 0;
+    targetY = 0;
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
   });
 }
 
