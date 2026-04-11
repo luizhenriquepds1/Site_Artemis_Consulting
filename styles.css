@@ -36,6 +36,30 @@
 }
 
 /* ============================================
+   ACCESSIBILITY — skip link
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 16px;
+  z-index: 9999;
+  background: var(--primary);
+  color: var(--secondary);
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid var(--secondary);
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  transition: top 0.3s var(--ease-out-quart);
+}
+.skip-link:focus {
+  top: 16px;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.3);
+}
+
+/* ============================================
    RESET
    ============================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

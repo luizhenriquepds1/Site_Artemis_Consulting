@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://artemisconsulting.com.br/</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://artemisconsulting.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://artemisconsulting.com.br/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://artemisconsulting.com.br/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://artemisconsulting.com.br/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://artemisconsulting.com.br/"/>
+    <image:image>
+      <image:loc>https://artemisconsulting.com.br/og-image.jpg</image:loc>
+      <image:title>ARTEMIS Consulting — Importação Premium Brasil-China</image:title>
+      <image:caption>Consultoria de importação premium Brasil-China com auditoria presencial e acompanhamento completo.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://artemisconsulting.com.br/#sobre</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://artemisconsulting.com.br/#servicos</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://artemisconsulting.com.br/#como-funciona</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://artemisconsulting.com.br/#faq</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://artemisconsulting.com.br/#contato</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

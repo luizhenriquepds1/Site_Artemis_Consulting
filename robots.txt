@@ -1,0 +1,46 @@
+# ARTEMIS Consulting — robots.txt
+# https://artemisconsulting.com.br
+
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /prompt.md
+Disallow: /STITCH-PROMPTS.md
+Disallow: /PRD.md
+Disallow: /DESIGN.md
+Disallow: /stitch_screen.html
+Disallow: /stitch_screen.png
+
+# Allow all major search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Block AI scrapers that don't respect attribution (optional — comment out if you want to allow)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+Sitemap: https://artemisconsulting.com.br/sitemap.xml
