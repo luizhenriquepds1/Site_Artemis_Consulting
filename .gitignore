@@ -32,3 +32,9 @@ yarn.lock
 
 # ===== Logs =====
 *.log
+
+# ===== Internal planning / prompts (não publicar no deploy) =====
+PRD.md
+DESIGN.md
+STITCH-PROMPTS.md
+prompt.md

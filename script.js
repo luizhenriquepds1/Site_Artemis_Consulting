@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTilt3D();
   initMagneticButtons();
   initHeroMouseParallax();
+  initContactForm();
 
   // Apply persisted language (defaults to PT)
   const saved = localStorage.getItem('artemis_lang') || 'PT';
@@ -130,10 +131,10 @@ function applyLanguage(lang) {
     if (typeof value === 'string') el.textContent = value;
   });
 
-  // 4. HTML nodes (mixed content like the hero title with <span>)
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const value = getNestedValue(dict, el.dataset.i18nHtml);
-    if (typeof value === 'string') el.innerHTML = value;
+  // 4. Placeholder attributes (form inputs/textarea)
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const value = getNestedValue(dict, el.dataset.i18nPlaceholder);
+    if (typeof value === 'string') el.setAttribute('placeholder', value);
   });
 
   // 5. Counter suffixes that depend on language (e.g. " anos" / " yrs" / " 年")
@@ -757,6 +758,106 @@ function initHeroMouseParallax() {
     if (!ticking) {
       ticking = true;
       requestAnimationFrame(update);
+    }
+  });
+}
+
+/* ----------------------------------------
+   Contact form — AJAX submit to Formsubmit.co
+---------------------------------------- */
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('contactStatus');
+  const submitBtn = document.getElementById('contactSubmit');
+  if (!form || !status || !submitBtn) return;
+
+  const getDict = () => {
+    const lang = localStorage.getItem('artemis_lang') || 'PT';
+    return (window.ARTEMIS_TRANSLATIONS && window.ARTEMIS_TRANSLATIONS[lang]) || {};
+  };
+  const t = (path, fallback) => {
+    const parts = path.split('.');
+    let cur = getDict();
+    for (const p of parts) {
+      if (cur == null) return fallback;
+      cur = cur[p];
+    }
+    return (typeof cur === 'string') ? cur : fallback;
+  };
+
+  const clearStatus = () => {
+    status.className = 'form-status';
+    status.textContent = '';
+  };
+
+  const showStatus = (type, message) => {
+    status.className = `form-status is-${type}`;
+    status.textContent = message;
+  };
+
+  form.querySelectorAll('input, textarea').forEach(field => {
+    field.addEventListener('input', () => {
+      field.closest('.form-field')?.classList.remove('is-invalid');
+      if (status.classList.contains('is-error')) clearStatus();
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Honeypot — silently succeed if filled (bots)
+    const honey = form.querySelector('input[name="_honey"]');
+    if (honey && honey.value.trim() !== '') return;
+
+    // Native validation
+    let firstInvalid = null;
+    form.querySelectorAll('input[required], textarea[required]').forEach(field => {
+      const wrap = field.closest('.form-field');
+      if (!field.checkValidity()) {
+        wrap?.classList.add('is-invalid');
+        if (!firstInvalid) firstInvalid = field;
+      } else {
+        wrap?.classList.remove('is-invalid');
+      }
+    });
+    if (firstInvalid) {
+      showStatus('error', t('contact.errorValidation', 'Por favor, preencha os campos obrigatórios corretamente.'));
+      firstInvalid.focus();
+      return;
+    }
+
+    // Build JSON payload for Formsubmit AJAX endpoint
+    const formData = new FormData(form);
+    const payload = {};
+    formData.forEach((value, key) => { payload[key] = value; });
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('is-loading');
+    clearStatus();
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/perluizhenrique@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && (data.success === 'true' || data.success === true)) {
+        showStatus('success', t('contact.success', 'Mensagem enviada! Nossa equipe entra em contato em breve.'));
+        form.reset();
+      } else {
+        showStatus('error', t('contact.error', 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.'));
+      }
+    } catch (err) {
+      showStatus('error', t('contact.error', 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.'));
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('is-loading');
     }
   });
 }

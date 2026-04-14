@@ -3,13 +3,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /.git/
-Disallow: /prompt.md
-Disallow: /STITCH-PROMPTS.md
-Disallow: /PRD.md
-Disallow: /DESIGN.md
-Disallow: /stitch_screen.html
-Disallow: /stitch_screen.png
 
 # Allow all major search engine crawlers
 User-agent: Googlebot

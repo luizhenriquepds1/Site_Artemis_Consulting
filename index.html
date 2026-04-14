@@ -74,7 +74,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
   <link rel="dns-prefetch" href="https://wa.me" />
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600" fetchpriority="high" />
   <link rel="preload" as="style" href="styles.css" />
@@ -348,9 +347,7 @@
     </div>
     <div class="hero-content">
       <span class="eyebrow" data-i18n="hero.eyebrow">▸ Consultoria de Importação Premium</span>
-      <h1 class="hero-title" data-i18n-html="hero.title">
-        Importe da China com <span class="text-gold">Segurança</span> e Resultados Reais
-      </h1>
+      <h1 class="hero-title"><span data-i18n="hero.titleStart">Importe da China com </span><span class="text-gold" data-i18n="hero.titleHighlight">Segurança</span><span data-i18n="hero.titleEnd"> e Resultados Reais</span></h1>
       <p class="hero-sub" data-i18n="hero.sub">
         Conectamos empreendedores brasileiros aos melhores fornecedores chineses — com auditoria presencial, negociação direta e acompanhamento completo.
       </p>
@@ -667,8 +664,61 @@
     </div>
   </section>
 
+  <!-- ============== CONTACT FORM ============== -->
+  <section class="section contact-section" id="contato">
+    <div class="container container-narrow">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark" data-i18n="contact.eyebrow">Fale Conosco</span>
+        <h2 class="section-title" data-i18n="contact.title">Pronto para começar sua importação?</h2>
+        <p class="section-sub" data-i18n="contact.sub">Preencha o formulário e um especialista da Artemis entra em contato em até 24h úteis.</p>
+      </div>
+      <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/perluizhenrique@gmail.com" method="POST" novalidate>
+        <!-- Formsubmit config -->
+        <input type="hidden" name="_subject" value="Novo contato via site Artemis Consulting" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" class="cf-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name" data-i18n="contact.labels.name">Nome completo</label>
+            <input id="cf-name" type="text" name="Nome" required autocomplete="name" data-i18n-placeholder="contact.placeholders.name" placeholder="Seu nome" />
+          </div>
+          <div class="form-field">
+            <label for="cf-email" data-i18n="contact.labels.email">E-mail</label>
+            <input id="cf-email" type="email" name="Email" required autocomplete="email" data-i18n-placeholder="contact.placeholders.email" placeholder="voce@empresa.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-phone" data-i18n="contact.labels.phone">WhatsApp / Telefone</label>
+            <input id="cf-phone" type="tel" name="Telefone" required autocomplete="tel" data-i18n-placeholder="contact.placeholders.phone" placeholder="+55 (11) 00000-0000" />
+          </div>
+          <div class="form-field">
+            <label for="cf-company" data-i18n="contact.labels.company">Empresa <span class="muted-inline" data-i18n="contact.labels.optional">(opcional)</span></label>
+            <input id="cf-company" type="text" name="Empresa" autocomplete="organization" data-i18n-placeholder="contact.placeholders.company" placeholder="Nome da empresa" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-message" data-i18n="contact.labels.message">Como podemos ajudar?</label>
+          <textarea id="cf-message" name="Mensagem" rows="5" required data-i18n-placeholder="contact.placeholders.message" placeholder="Conte brevemente sobre o produto que deseja importar, volume estimado e prazo."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="contactSubmit">
+            <span class="cf-btn-label" data-i18n="contact.button">Enviar mensagem</span>
+            <span class="cf-btn-loader" aria-hidden="true"></span>
+          </button>
+          <p class="form-note" data-i18n="contact.note">Respondemos em até 24h úteis. Seus dados não são compartilhados.</p>
+        </div>
+
+        <div class="form-status" id="contactStatus" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
   <!-- ============== FINAL CTA ============== -->
-  <section class="cta-final" id="contato">
+  <section class="cta-final">
     <div class="container">
       <div class="cta-inner reveal">
         <h2 data-i18n="cta.title">Pronto para crescer com inteligência?</h2>
@@ -728,7 +778,7 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="vendor/three.min.js"></script>
   <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>

@@ -25,7 +25,9 @@ window.ARTEMIS_TRANSLATIONS = {
     },
     hero: {
       eyebrow: '▸ Consultoria de Importação Premium',
-      title: 'Importe da China com <span class="text-gold">Segurança</span> e Resultados Reais',
+      titleStart: 'Importe da China com ',
+      titleHighlight: 'Segurança',
+      titleEnd: ' e Resultados Reais',
       sub: 'Conectamos empreendedores brasileiros aos melhores fornecedores chineses — com auditoria presencial, negociação direta e acompanhamento completo.',
       btnPrimary: 'Falar com Especialista',
       btnSecondary: 'Conhecer os Serviços'
@@ -104,6 +106,31 @@ window.ARTEMIS_TRANSLATIONS = {
       q6: 'Vocês cuidam do desembaraço aduaneiro no Brasil?',
       a6: 'Sim. Coordenamos todo o processo logístico, incluindo documentação, desembaraço e entrega no endereço do cliente.'
     },
+    contact: {
+      eyebrow: 'Fale Conosco',
+      title: 'Pronto para começar sua importação?',
+      sub: 'Preencha o formulário e um especialista da Artemis entra em contato em até 24h úteis.',
+      labels: {
+        name: 'Nome completo',
+        email: 'E-mail',
+        phone: 'WhatsApp / Telefone',
+        company: 'Empresa',
+        optional: '(opcional)',
+        message: 'Como podemos ajudar?'
+      },
+      placeholders: {
+        name: 'Seu nome',
+        email: 'voce@empresa.com',
+        phone: '+55 (11) 00000-0000',
+        company: 'Nome da empresa',
+        message: 'Conte brevemente sobre o produto que deseja importar, volume estimado e prazo.'
+      },
+      button: 'Enviar mensagem',
+      note: 'Respondemos em até 24h úteis. Seus dados não são compartilhados.',
+      success: 'Mensagem enviada! Nossa equipe entra em contato em breve.',
+      error: 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.',
+      errorValidation: 'Por favor, preencha os campos obrigatórios corretamente.'
+    },
     cta: {
       title: 'Pronto para crescer com inteligência?',
       text: 'Fale com um especialista da Artemis e descubra como a importação direta pode transformar seu negócio.',
@@ -133,7 +160,9 @@ window.ARTEMIS_TRANSLATIONS = {
     },
     hero: {
       eyebrow: '▸ Premium Import Consulting',
-      title: 'Import from China with <span class="text-gold">Confidence</span> and Real Results',
+      titleStart: 'Import from China with ',
+      titleHighlight: 'Confidence',
+      titleEnd: ' and Real Results',
       sub: 'We connect Brazilian entrepreneurs to the best Chinese suppliers — with on-site audits, direct negotiation and end-to-end follow-through.',
       btnPrimary: 'Talk to a Specialist',
       btnSecondary: 'Explore Services'
@@ -212,6 +241,31 @@ window.ARTEMIS_TRANSLATIONS = {
       q6: 'Do you handle customs clearance in Brazil?',
       a6: 'Yes. We manage the entire logistics process, including documentation, customs clearance and delivery to the client’s address.'
     },
+    contact: {
+      eyebrow: 'Get in Touch',
+      title: 'Ready to start your import?',
+      sub: 'Fill out the form and an Artemis specialist will contact you within 24 business hours.',
+      labels: {
+        name: 'Full name',
+        email: 'Email',
+        phone: 'WhatsApp / Phone',
+        company: 'Company',
+        optional: '(optional)',
+        message: 'How can we help?'
+      },
+      placeholders: {
+        name: 'Your name',
+        email: 'you@company.com',
+        phone: '+1 (000) 000-0000',
+        company: 'Company name',
+        message: 'Briefly describe the product you want to import, estimated volume and timeline.'
+      },
+      button: 'Send message',
+      note: 'We reply within 24 business hours. Your data is never shared.',
+      success: 'Message sent! Our team will be in touch shortly.',
+      error: 'Could not send right now. Please try again or reach us on WhatsApp.',
+      errorValidation: 'Please fill out the required fields correctly.'
+    },
     cta: {
       title: 'Ready to grow with intelligence?',
       text: 'Talk to an Artemis specialist and discover how direct imports can transform your business.',
@@ -241,7 +295,9 @@ window.ARTEMIS_TRANSLATIONS = {
     },
     hero: {
       eyebrow: '▸ 高端进口咨询',
-      title: '安全可靠地从中国进口 <span class="text-gold">实现真实成果</span>',
+      titleStart: '安全可靠地从中国进口 ',
+      titleHighlight: '实现真实成果',
+      titleEnd: '',
       sub: '我们帮助巴西企业家对接最优质的中国供应商 —— 提供实地审核、直接谈判和全程跟进。',
       btnPrimary: '联系专家',
       btnSecondary: '了解服务'
@@ -320,6 +376,31 @@ window.ARTEMIS_TRANSLATIONS = {
       q6: '你们负责巴西的清关吗?',
       a6: '是的。我们管理整个物流流程,包括单据、清关和送货上门。'
     },
+    contact: {
+      eyebrow: '联系我们',
+      title: '准备开始您的进口之旅?',
+      sub: '填写表单,Artemis 专家将在 24 个工作小时内与您联系。',
+      labels: {
+        name: '姓名',
+        email: '邮箱',
+        phone: 'WhatsApp / 电话',
+        company: '公司',
+        optional: '(选填)',
+        message: '我们如何帮助您?'
+      },
+      placeholders: {
+        name: '您的姓名',
+        email: 'you@company.com',
+        phone: '+86 000 0000 0000',
+        company: '公司名称',
+        message: '请简要说明您希望进口的产品、预计数量和时间。'
+      },
+      button: '发送信息',
+      note: '我们将在 24 个工作小时内回复。您的信息不会被分享。',
+      success: '信息已发送!我们的团队将尽快与您联系。',
+      error: '目前无法发送。请稍后再试或通过 WhatsApp 联系我们。',
+      errorValidation: '请正确填写必填项。'
+    },
     cta: {
       title: '准备好用智慧驱动增长了吗?',
       text: '联系 Artemis 专家,看看直接进口如何重塑您的业务。',
@@ -349,7 +430,9 @@ window.ARTEMIS_TRANSLATIONS = {
     },
     hero: {
       eyebrow: '▸ Consultoría de Importación Premium',
-      title: 'Importa de China con <span class="text-gold">Seguridad</span> y Resultados Reales',
+      titleStart: 'Importa de China con ',
+      titleHighlight: 'Seguridad',
+      titleEnd: ' y Resultados Reales',
       sub: 'Conectamos a empresarios brasileños con los mejores proveedores chinos — con auditoría presencial, negociación directa y acompañamiento integral.',
       btnPrimary: 'Hablar con un Especialista',
       btnSecondary: 'Conocer los Servicios'
@@ -427,6 +510,31 @@ window.ARTEMIS_TRANSLATIONS = {
       a5: 'Sí, es necesario un CNPJ habilitado para importación. Podemos orientarte sobre los requisitos y procesos ante la Receita Federal.',
       q6: '¿Se encargan del despacho aduanero en Brasil?',
       a6: 'Sí. Coordinamos todo el proceso logístico, incluyendo documentación, despacho aduanero y entrega en la dirección del cliente.'
+    },
+    contact: {
+      eyebrow: 'Hablemos',
+      title: '¿Listo para comenzar tu importación?',
+      sub: 'Completa el formulario y un especialista de Artemis se pondrá en contacto en hasta 24 h hábiles.',
+      labels: {
+        name: 'Nombre completo',
+        email: 'Correo electrónico',
+        phone: 'WhatsApp / Teléfono',
+        company: 'Empresa',
+        optional: '(opcional)',
+        message: '¿Cómo podemos ayudarte?'
+      },
+      placeholders: {
+        name: 'Tu nombre',
+        email: 'tu@empresa.com',
+        phone: '+54 (00) 0000-0000',
+        company: 'Nombre de la empresa',
+        message: 'Cuéntanos brevemente sobre el producto que deseas importar, volumen estimado y plazo.'
+      },
+      button: 'Enviar mensaje',
+      note: 'Respondemos en hasta 24 h hábiles. Tus datos no se comparten.',
+      success: '¡Mensaje enviado! Nuestro equipo se pondrá en contacto pronto.',
+      error: 'No fue posible enviar en este momento. Inténtalo de nuevo o escríbenos por WhatsApp.',
+      errorValidation: 'Por favor, completa correctamente los campos obligatorios.'
     },
     cta: {
       title: '¿Listo para crecer con inteligencia?',
