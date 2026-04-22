@@ -1,7 +1,7 @@
-/* ================================================
-   ARTEMIS CONSULTING — Translations dictionary
+/* 
+   ARTEMIS SOLUTIONS — Translations dictionary
    PT (Portuguese) | EN (English) | CN (中文) | ES (Español)
-   ================================================ */
+  */
 
 window.ARTEMIS_LANG_CODES = {
   PT: 'pt-BR',
@@ -12,9 +12,9 @@ window.ARTEMIS_LANG_CODES = {
 
 window.ARTEMIS_TRANSLATIONS = {
 
-  /* ========== PORTUGUÊS ========== */
+  /*PORTUGUÊS */
   PT: {
-    meta: { title: 'ARTEMIS Consulting | Importação Premium da China' },
+    meta: { title: 'ARTEMIS Solutions | Importação Premium da China' },
     nav: {
       about: 'Sobre',
       services: 'Serviços',
@@ -41,7 +41,7 @@ window.ARTEMIS_TRANSLATIONS = {
     about: {
       eyebrow: 'Sobre a Artemis',
       title: 'Seu parceiro estratégico no mercado global',
-      lead: 'A Artemis Consulting surge como a solução definitiva para empreendedores brasileiros que desejam explorar o potencial das importações diretas da China. Nosso objetivo é tornar cada operação simples, segura e lucrativa, conectando você aos fornecedores mais confiáveis e oferecendo acompanhamento completo desde a escolha do produto até a entrega final.',
+      lead: 'A Artemis Solutions surge como a solução definitiva para empreendedores brasileiros que desejam explorar o potencial das importações diretas da China. Nosso objetivo é tornar cada operação simples, segura e lucrativa, conectando você aos fornecedores mais confiáveis e oferecendo acompanhamento completo desde a escolha do produto até a entrega final.',
       muted: 'Combinamos experiência, rigor e atenção aos detalhes para que cada cliente tenha confiança e resultados tangíveis.',
       badge1: 'Auditoria Presencial',
       badge2: 'Sem Intermediários',
@@ -81,7 +81,7 @@ window.ARTEMIS_TRANSLATIONS = {
       title: 'Por que a Artemis é diferente?',
       d1: { title: 'Transparência Total', desc: 'Sem custos ocultos. Cada centavo investido é rastreado e justificado em relatórios detalhados.' },
       d2: { title: 'Auditoria Presencial', desc: 'Nossa equipe local visita cada fornecedor fisicamente, eliminando riscos de fornecedores fantasmas.' },
-      d3: { title: 'Expertise Internacional', desc: 'Mais de 8 anos navegando o comércio Brasil-China, com profundo conhecimento de regras e cultura local.' }
+      d3: { title: 'Expertise Internacional', desc: 'Mais de 2 anos navegando o comércio Brasil-China, com profundo conhecimento de regras e cultura local.' }
     },
     testimonials: {
       eyebrow: 'Depoimentos',
@@ -142,14 +142,14 @@ window.ARTEMIS_TRANSLATIONS = {
       navTitle: 'Navegação',
       contactTitle: 'Contato',
       col4: { title: 'Vamos conversar', text: 'Importação segura e lucrativa para empreendedores brasileiros.', btn: 'Agendar Conversa' },
-      copyright: '© 2026 Artemis Consulting. Todos os direitos reservados.',
+      copyright: '© 2026 Artemis Solutions. Todos os direitos reservados.',
       madeIn: 'Feito com excelência no Brasil 🇧🇷'
     }
   },
 
-  /* ========== ENGLISH ========== */
+  /* ENGLISH */
   EN: {
-    meta: { title: 'ARTEMIS Consulting | Premium Imports from China' },
+    meta: { title: 'ARTEMIS Solutions | Premium Imports from China' },
     nav: {
       about: 'About',
       services: 'Services',
@@ -176,7 +176,7 @@ window.ARTEMIS_TRANSLATIONS = {
     about: {
       eyebrow: 'About Artemis',
       title: 'Your strategic partner in the global market',
-      lead: 'Artemis Consulting was born as the definitive solution for Brazilian entrepreneurs who want to unlock the full potential of direct imports from China. Our mission is to make every operation simple, safe and profitable — connecting you to the most reliable suppliers and offering complete oversight from product selection to final delivery.',
+      lead: 'Artemis Solutions was born as the definitive solution for Brazilian entrepreneurs who want to unlock the full potential of direct imports from China. Our mission is to make every operation simple, safe and profitable — connecting you to the most reliable suppliers and offering complete oversight from product selection to final delivery.',
       muted: 'We combine experience, rigor and attention to detail so every client enjoys confidence and tangible results.',
       badge1: 'On-Site Audits',
       badge2: 'No Middlemen',
@@ -216,7 +216,7 @@ window.ARTEMIS_TRANSLATIONS = {
       title: 'Why Artemis is different',
       d1: { title: 'Total Transparency', desc: 'No hidden costs. Every cent invested is tracked and justified in detailed reports.' },
       d2: { title: 'On-Site Audits', desc: 'Our local team physically visits each supplier, eliminating the risk of phantom factories.' },
-      d3: { title: 'International Expertise', desc: 'Over 8 years navigating Brazil–China trade with deep knowledge of local rules and culture.' }
+      d3: { title: 'International Expertise', desc: 'Over 2 years navigating Brazil–China trade with deep knowledge of local rules and culture.' }
     },
     testimonials: {
       eyebrow: 'Testimonials',
@@ -277,14 +277,14 @@ window.ARTEMIS_TRANSLATIONS = {
       navTitle: 'Navigation',
       contactTitle: 'Contact',
       col4: { title: 'Let’s talk', text: 'Safe and profitable imports for Brazilian entrepreneurs.', btn: 'Schedule a Call' },
-      copyright: '© 2026 Artemis Consulting. All rights reserved.',
+      copyright: '© 2026 Artemis Solutions. All rights reserved.',
       madeIn: 'Crafted with excellence in Brazil 🇧🇷'
     }
   },
 
-  /* ========== 中文 ========== */
+  /* 中文 */
   CN: {
-    meta: { title: 'ARTEMIS Consulting | 高端中国进口咨询' },
+    meta: { title: 'ARTEMIS Solutions | 高端中国进口咨询' },
     nav: {
       about: '关于我们',
       services: '服务',
@@ -311,7 +311,7 @@ window.ARTEMIS_TRANSLATIONS = {
     about: {
       eyebrow: '关于 Artemis',
       title: '您在全球市场的战略合作伙伴',
-      lead: 'Artemis Consulting 是为希望挖掘中国直接进口潜力的巴西企业家提供的终极解决方案。我们致力于让每一次进口都简单、安全且盈利,将您与最可靠的供应商对接,并从产品选择到最终交付提供全程支持。',
+      lead: 'Artemis Solutions 是为希望挖掘中国直接进口潜力的巴西企业家提供的终极解决方案。我们致力于让每一次进口都简单、安全且盈利,将您与最可靠的供应商对接,并从产品选择到最终交付提供全程支持。',
       muted: '我们将经验、严谨和细致结合,让每一位客户都获得信心和切实成果。',
       badge1: '实地审核',
       badge2: '无中间商',
@@ -351,7 +351,7 @@ window.ARTEMIS_TRANSLATIONS = {
       title: 'Artemis 因何不同',
       d1: { title: '完全透明', desc: '没有隐藏费用,每一分投资都被追踪并在详细报告中说明。' },
       d2: { title: '实地审核', desc: '本地团队亲赴每一家供应商,杜绝幽灵工厂的风险。' },
-      d3: { title: '国际经验', desc: '8 年以上深耕巴中贸易,熟知本地规则与文化。' }
+      d3: { title: '国际经验', desc: '2 年以上深耕巴中贸易,熟知本地规则与文化。' }
     },
     testimonials: {
       eyebrow: '客户评价',
@@ -412,14 +412,14 @@ window.ARTEMIS_TRANSLATIONS = {
       navTitle: '导航',
       contactTitle: '联系',
       col4: { title: '与我们交流', text: '为巴西企业家提供安全且盈利的进口服务。', btn: '预约沟通' },
-      copyright: '© 2026 Artemis Consulting. 版权所有。',
+      copyright: '© 2026 Artemis Solutions. 版权所有。',
       madeIn: '巴西匠心打造 🇧🇷'
     }
   },
 
-  /* ========== ESPAÑOL ========== */
+  /*ESPAÑOL*/
   ES: {
-    meta: { title: 'ARTEMIS Consulting | Importación Premium desde China' },
+    meta: { title: 'ARTEMIS Solutions | Importación Premium desde China' },
     nav: {
       about: 'Nosotros',
       services: 'Servicios',
@@ -446,7 +446,7 @@ window.ARTEMIS_TRANSLATIONS = {
     about: {
       eyebrow: 'Sobre Artemis',
       title: 'Tu socio estratégico en el mercado global',
-      lead: 'Artemis Consulting nace como la solución definitiva para los empresarios brasileños que desean explorar todo el potencial de las importaciones directas desde China. Nuestro objetivo es hacer que cada operación sea simple, segura y rentable, conectándote con los proveedores más confiables y ofreciendo acompañamiento completo desde la elección del producto hasta la entrega final.',
+      lead: 'Artemis Solutions nace como la solución definitiva para los empresarios brasileños que desean explorar todo el potencial de las importaciones directas desde China. Nuestro objetivo es hacer que cada operación sea simple, segura y rentable, conectándote con los proveedores más confiables y ofreciendo acompañamiento completo desde la elección del producto hasta la entrega final.',
       muted: 'Combinamos experiencia, rigor y atención al detalle para que cada cliente obtenga confianza y resultados tangibles.',
       badge1: 'Auditoría Presencial',
       badge2: 'Sin Intermediarios',
@@ -486,7 +486,7 @@ window.ARTEMIS_TRANSLATIONS = {
       title: '¿Por qué Artemis es diferente?',
       d1: { title: 'Transparencia Total', desc: 'Sin costos ocultos. Cada centavo invertido es rastreado y justificado en informes detallados.' },
       d2: { title: 'Auditoría Presencial', desc: 'Nuestro equipo local visita físicamente a cada proveedor, eliminando el riesgo de fábricas fantasma.' },
-      d3: { title: 'Experiencia Internacional', desc: 'Más de 8 años navegando el comercio Brasil–China, con profundo conocimiento de reglas y cultura local.' }
+      d3: { title: 'Experiencia Internacional', desc: 'Más de 2 años navegando el comercio Brasil–China, con profundo conocimiento de reglas y cultura local.' }
     },
     testimonials: {
       eyebrow: 'Testimonios',
@@ -547,7 +547,7 @@ window.ARTEMIS_TRANSLATIONS = {
       navTitle: 'Navegación',
       contactTitle: 'Contacto',
       col4: { title: 'Conversemos', text: 'Importación segura y rentable para empresarios brasileños.', btn: 'Agendar Conversación' },
-      copyright: '© 2026 Artemis Consulting. Todos los derechos reservados.',
+      copyright: '© 2026 Artemis Solutions. Todos los derechos reservados.',
       madeIn: 'Hecho con excelencia en Brasil 🇧🇷'
     }
   }

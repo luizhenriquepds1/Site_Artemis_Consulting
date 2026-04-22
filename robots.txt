@@ -1,5 +1,5 @@
-# ARTEMIS Consulting — robots.txt
-# https://artemisconsulting.com.br
+# ARTEMIS Solutions — robots.txt
+# https://artemissolutions.com.br
 
 User-agent: *
 Allow: /
@@ -36,4 +36,4 @@ Disallow: /
 User-agent: ClaudeBot
 Disallow: /
 
-Sitemap: https://artemisconsulting.com.br/sitemap.xml
+Sitemap: https://artemissolutions.com.br/sitemap.xml

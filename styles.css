@@ -1,6 +1,3 @@
-/* ============================================
-   ARTEMIS CONSULTING — Design tokens (DESIGN.md)
-   ============================================ */
 :root {
   --primary: #0A1628;
   --secondary: #C9A84C;
@@ -35,9 +32,7 @@
   --nav-height: 80px;
 }
 
-/* ============================================
-   ACCESSIBILITY — skip link
-   ============================================ */
+/* ACCESSIBILITY — skip link*/
 .skip-link {
   position: absolute;
   top: -48px;
@@ -59,9 +54,7 @@
   box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.3);
 }
 
-/* ============================================
-   RESET
-   ============================================ */
+/* RESET*/
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -80,9 +73,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 ul, ol { list-style: none; }
 h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-primary); }
 
-/* ============================================
-   LAYOUT HELPERS
-   ============================================ */
+/*LAYOUT HELPERS */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -118,9 +109,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
 }
 .eyebrow-dark { color: var(--secondary-dark); }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
+/*  BUTTONS */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -178,9 +167,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
 }
 
-/* ============================================
-   NAVBAR
-   ============================================ */
+/* NAVBAR*/
 .navbar {
   position: fixed;
   top: 0;
@@ -204,6 +191,24 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
+}
+.logo-img {
+  display: block;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.5s var(--ease-out-quart), filter 0.5s ease;
+}
+.logo:hover .logo-img {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 16px rgba(201, 168, 76, 0.35));
+}
+.logo-footer .logo-img { height: 48px; }
+.loader-logo-img {
+  display: block;
+  height: 64px;
+  width: auto;
+  object-fit: contain;
 }
 .logo {
   display: flex;
@@ -370,9 +375,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   .navbar .btn-ghost-gold { display: none; }
 }
 
-/* ============================================
-   HERO
-   ============================================ */
+/* HERO*/
 .hero {
   position: relative;
   min-height: 100vh;
@@ -443,9 +446,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   50% { transform: translate(-50%, 8px); }
 }
 
-/* ============================================
-   STATS BAR
-   ============================================ */
+/*STATS BAR*/
 .stats-bar {
   background: var(--primary);
   padding: var(--space-5) 0;
@@ -475,9 +476,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* ============================================
-   ABOUT
-   ============================================ */
+/* ABOUT */
 .about { background: var(--bg); }
 .split {
   display: grid;
@@ -528,9 +527,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   margin-right: 4px;
 }
 
-/* ============================================
-   WHY CHINA
-   ============================================ */
+/* WHY CHINA*/
 .why-china { background: var(--surface); }
 .why-grid {
   display: grid;
@@ -575,9 +572,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
 .why-card:hover img { transform: scale(1.08); }
 .why-card:hover .why-overlay { background: linear-gradient(180deg, rgba(10, 22, 40, 0.3) 0%, rgba(10, 22, 40, 0.85) 100%); }
 
-/* ============================================
-   SERVICES
-   ============================================ */
+/* SERVICES */
 .services { background: var(--surface); }
 .services-grid {
   display: grid;
@@ -623,9 +618,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   font-size: 14px;
 }
 
-/* ============================================
-   HOW IT WORKS
-   ============================================ */
+/* HOW IT WORKS */
 .how-it-works { background: var(--bg); }
 .timeline {
   display: grid;
@@ -660,9 +653,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
 .timeline-step h4 { font-size: 16px; margin-bottom: 4px; }
 .timeline-step p { color: var(--text-secondary); font-size: 14px; }
 
-/* ============================================
-   DIFFERENTIALS
-   ============================================ */
+/* DIFFERENTIALS */
 .differentials {
   position: relative;
   background: var(--primary);
@@ -703,9 +694,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
 }
 .diff-item p { color: rgba(255, 255, 255, 0.7); font-size: 14px; }
 
-/* ============================================
-   TESTIMONIALS
-   ============================================ */
+/* TESTIMONIALS */
 .testimonials { background: var(--surface); }
 .carousel {
   position: relative;
@@ -785,9 +774,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   border-radius: 5px;
 }
 
-/* ============================================
-   FAQ
-   ============================================ */
+/* FAQ */
 .faq { background: var(--bg); }
 .accordion { display: flex; flex-direction: column; gap: var(--space-2); }
 .accordion-item {
@@ -835,9 +822,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================
-   FINAL CTA
-   ============================================ */
+/* FINAL CTA*/
 .cta-final {
   background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
   padding: var(--space-7) 0;
@@ -855,9 +840,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   margin: 0 auto var(--space-4);
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+/* FOOTER */
 .footer {
   background: var(--primary);
   color: var(--text-light);
@@ -896,9 +879,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   font-size: 12px;
 }
 
-/* ============================================
-   REVEAL ON SCROLL
-   ============================================ */
+/* REVEAL ON SCROLL */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -909,9 +890,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   transform: translateY(0);
 }
 
-/* ============================================
-   RESPONSIVE — TABLET (≥768px)
-   ============================================ */
+/* RESPONSIVE — TABLET (≥768px) */
 @media (min-width: 768px) {
   .container { padding: 0 var(--space-4); }
   .section { padding: var(--space-7) 0; }
@@ -967,9 +946,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   .footer-bottom { flex-direction: row; justify-content: space-between; }
 }
 
-/* ============================================
-   RESPONSIVE — DESKTOP (≥1200px)
-   ============================================ */
+/* RESPONSIVE — DESKTOP (≥1200px) */
 @media (min-width: 1200px) {
   .nav-links {
     display: flex !important;
@@ -994,11 +971,9 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
   .service-card:nth-child(5) { grid-column: 4 / span 2; margin-right: 0; }
 }
 
-/* ============================================
-   PROFESSIONAL EFFECTS & ANIMATIONS
-   ============================================ */
+/* EFFECTS & ANIMATIONS */
 
-/* ----- Page loader ----- */
+/* Page loader */
 .page-loader {
   position: fixed;
   inset: 0;
@@ -1039,7 +1014,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.2; color: var(--text-prima
 }
 body:not(.loaded) { overflow: hidden; }
 
-/* ----- Scroll progress bar ----- */
+/* Scroll progress bar */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -1052,7 +1027,7 @@ body:not(.loaded) { overflow: hidden; }
   transition: width 0.1s linear;
 }
 
-/* ----- Back to top button ----- */
+/* Back to top button */
 .back-to-top {
   position: fixed;
   bottom: 24px;
@@ -1086,7 +1061,7 @@ body:not(.loaded) { overflow: hidden; }
   box-shadow: 0 16px 36px rgba(201, 168, 76, 0.4);
 }
 
-/* ----- Navbar: auto-hide + active link ----- */
+/* Navbar: auto-hide + active link */
 .navbar {
   transition: transform 0.45s var(--ease-out-quart),
               background 0.4s ease,
@@ -1098,7 +1073,7 @@ body:not(.loaded) { overflow: hidden; }
 .nav-links a.active { color: var(--secondary); }
 .nav-links a.active::after { transform: scaleX(1); }
 
-/* ----- Logo shine sweep ----- */
+/* Logo shine sweep */
 .logo { position: relative; overflow: hidden; }
 .logo::after {
   content: '';
@@ -1114,7 +1089,7 @@ body:not(.loaded) { overflow: hidden; }
 }
 .logo:hover::after { left: 160%; }
 
-/* ----- Hero: parallax target + staggered entrance ----- */
+/* Hero: parallax target + staggered entrance */
 .hero-bg { will-change: transform; }
 .hero-bg img { will-change: transform; }
 
@@ -1141,7 +1116,7 @@ body:not(.loaded) { overflow: hidden; }
 }
 @keyframes scrollIndicatorIn { to { opacity: 0.7; } }
 
-/* ----- Button shimmer sweep ----- */
+/* Button shimmer sweep */
 .btn-primary,
 .btn-navy,
 .btn-ghost-gold {
@@ -1171,7 +1146,7 @@ body:not(.loaded) { overflow: hidden; }
 .btn-navy:hover::before,
 .btn-ghost-gold:hover::before { left: 160%; }
 
-/* ----- Section title animated underline ----- */
+/* Section title animated underline */
 .section-head .section-title {
   position: relative;
   padding-bottom: 18px;
@@ -1191,7 +1166,7 @@ body:not(.loaded) { overflow: hidden; }
 }
 .section-head.visible .section-title::after { width: 64px; }
 
-/* ----- Stats number glow on reveal ----- */
+/* Stats number glow on reveal */
 .stat-number {
   text-shadow: 0 0 0 rgba(201, 168, 76, 0);
   transition: text-shadow 1s 0.4s ease;
@@ -1200,7 +1175,7 @@ body:not(.loaded) { overflow: hidden; }
   text-shadow: 0 0 40px rgba(201, 168, 76, 0.28);
 }
 
-/* ----- About: image clip-path reveal + accent pop ----- */
+/* About: image clip-path reveal + accent pop */
 .split-image img {
   clip-path: inset(0 100% 0 0);
   transition: clip-path 1.3s 0.2s var(--ease-out-expo);
@@ -1217,7 +1192,7 @@ body:not(.loaded) { overflow: hidden; }
   transform: translate(0, 0) scale(1);
 }
 
-/* ----- Trust badges staggered slide ----- */
+/* Trust badges staggered slide */
 .trust-badges li {
   opacity: 0;
   transform: translateX(-18px);
@@ -1228,7 +1203,7 @@ body:not(.loaded) { overflow: hidden; }
 .split-text.visible .trust-badges li:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.72s; }
 .split-text.visible .trust-badges li:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.84s; }
 
-/* ----- Why-card hover border outline ----- */
+/* Why-card hover border outline */
 .why-card::after {
   content: '';
   position: absolute;
@@ -1241,7 +1216,7 @@ body:not(.loaded) { overflow: hidden; }
 }
 .why-card:hover::after { border-color: var(--secondary); }
 
-/* ----- Service card: spotlight follow + rotating icon ----- */
+/* Service card: spotlight follow + rotating icon */
 .service-card::after {
   content: '';
   position: absolute;
@@ -1284,7 +1259,7 @@ body:not(.loaded) { overflow: hidden; }
   box-shadow: 0 0 24px rgba(201, 168, 76, 0.45);
 }
 
-/* ----- Differentials: animated border + rotating icon ----- */
+/* Differentials: animated border + rotating icon */
 .diff-item {
   border-left-color: rgba(201, 168, 76, 0.25);
   transition: border-left-color 0.7s 0.2s var(--ease-out-quart),
@@ -1302,7 +1277,7 @@ body:not(.loaded) { overflow: hidden; }
 }
 .diff-item:hover .diff-icon { transform: rotate(45deg) scale(1.2); }
 
-/* ----- Timeline: animated connector line ----- */
+/* Timeline: animated connector line */
 @media (min-width: 768px) {
   .timeline::after {
     content: '';
@@ -1331,12 +1306,12 @@ body:not(.loaded) { overflow: hidden; }
   box-shadow: 0 16px 32px rgba(201, 168, 76, 0.35);
 }
 
-/* ----- Accordion: smoother hover ----- */
+/* Accordion: smoother hover */
 .accordion-item { transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s var(--ease-out-quart); }
 .accordion-item:hover { transform: translateX(4px); }
 .accordion-item[open] { transform: none; }
 
-/* ----- Reveal base: nicer easing + staggered grids ----- */
+/* Reveal base: nicer easing + staggered grids */
 .reveal {
   transition: opacity 1s var(--ease-out-expo),
               transform 1s var(--ease-out-expo);
@@ -1367,7 +1342,7 @@ body:not(.loaded) { overflow: hidden; }
 .stats-grid .reveal:nth-child(2) { transition-delay: 0.15s; }
 .stats-grid .reveal:nth-child(3) { transition-delay: 0.3s; }
 
-/* ----- Final CTA: subtle continuous gradient ----- */
+/* Final CTA: subtle continuous gradient */
 .cta-final {
   background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 50%, var(--secondary) 100%);
   background-size: 200% 200%;
@@ -1378,22 +1353,20 @@ body:not(.loaded) { overflow: hidden; }
   50% { background-position: 100% 50%; }
 }
 
-/* ----- About image transition fine-tune ----- */
+/* About image transition fine-tune */
 .split-image img {
   transition: clip-path 1.3s 0.2s var(--ease-out-expo),
               transform 0.8s var(--ease-out-quart),
               box-shadow 0.4s ease;
 }
 
-/* ----- Testimonial card lift ----- */
+/* Testimonial card lift */
 .testimonial-card { transition: transform 0.5s var(--ease-out-quart); }
 .carousel:hover .testimonial-card { transform: none; }
 
-/* ============================================
-   3D + FLOATING + MOTION EFFECTS
-   ============================================ */
+/* 3D + FLOATING + MOTION EFFECTS */
 
-/* ----- Hero: 3D canvas layer + floating orbs ----- */
+/* Hero: 3D canvas layer + floating orbs */
 .hero-3d {
   position: absolute;
   inset: 0;
@@ -1463,7 +1436,7 @@ body:not(.loaded) { overflow: hidden; }
   transform-style: preserve-3d;
 }
 
-/* ----- Floating bob animations ----- */
+/* Floating bob animations */
 @keyframes floatBob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -1509,7 +1482,7 @@ body:not(.loaded) { overflow: hidden; }
   filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.4));
 }
 
-/* ----- 3D tilt cards (JS sets --rx/--ry) ----- */
+/* 3D tilt cards (JS sets --rx/--ry) */
 .service-card,
 .why-card,
 .stat-item,
@@ -1540,13 +1513,13 @@ body:not(.loaded) { overflow: hidden; }
   display: block;
 }
 
-/* ----- Magnetic buttons ----- */
+/* Magnetic buttons*/
 .btn-primary,
 .btn-navy {
   will-change: transform;
 }
 
-/* ----- Hero content mouse parallax ----- */
+/* Hero content mouse parallax */
 .hero-content {
   transition: transform 0.2s ease-out;
 }
@@ -1580,19 +1553,19 @@ body:not(.loaded) { overflow: hidden; }
 }
 .stats-bar .container { position: relative; z-index: 1; }
 
-/* ----- CTA floating arrow on hero primary btn ----- */
+/* CTA floating arrow on hero primary btn */
 .btn-primary::after,
 .btn-navy::after {
   content: '';
 }
 
-/* ----- Why-card content lift on hover ----- */
+/* Why-card content lift on hover */
 .why-card .why-content {
   transition: transform 0.5s var(--ease-out-quart);
 }
 .why-card:hover .why-content { transform: translateY(-6px); }
 
-/* ----- Logo lift on hover ----- */
+/* Logo lift on hover */
 .logo-text {
   display: inline-block;
   transition: transform 0.5s var(--ease-out-quart), text-shadow 0.5s ease;
@@ -1608,9 +1581,8 @@ body:not(.loaded) { overflow: hidden; }
 }
 .accordion-item[open] .acc-icon { animation: none; }
 
-/* ============================================
-   CONTACT FORM
-   ============================================ */
+/*
+   CONTACT FORM*/
 .contact-section {
   background: var(--surface);
   position: relative;

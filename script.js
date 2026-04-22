@@ -1,5 +1,5 @@
 /* ================================================
-   ARTEMIS CONSULTING — Vanilla JS interactions
+   ARTEMIS SOLUTIONS — Vanilla JS interactions
    ================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
